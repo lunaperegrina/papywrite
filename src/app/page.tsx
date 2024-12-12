@@ -17,20 +17,62 @@ export default async function Home() {
 
   return (
     <>
-      <section className="bg-gray-100 dark:bg-gray-900 py-12 md:py-20 px-6 md:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-200 mb-4">
-            Explore nossos criadores de conteúdo
+      <div className="h-screen max-w-7xl mx-auto flex flex-col">
+        <nav className="flex flex-row border-b border-stone-900 py-5 px-8 justify-between">
+          <h1 className="font-lora text-2xl font-semibold">
+            Papywrite
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 ">
-            Descubra os conteúdos mais recentes e aprimore o seu conhecimento
-          </p>
-          {/* <Button>Read More</Button> */}
+          <ul className="flex flex-row gap-4 items-center">
+            <li>
+              Sign In
+            </li>
+            <li>
+              <Button asChild className="rounded-none w-28">
+                <Link href="/login">
+                  Get Started
+                </Link>
+              </Button>
+            </li>
+          </ul>
+        </nav>
+
+        <div className="flex flex-col flex-1 justify-center mx-16">
+          <div className="flex flex-col gap-4">
+            <div>
+              <h1 className="font-lora text-7xl font-bold text-stone-800 dark:text-stone-200">
+                A platform
+              </h1>
+              <h1 className="font-lora text-7xl font-bold text-stone-800 dark:text-stone-200">
+                for writers
+              </h1>
+            </div>
+            <p className="text-stone-600 dark:text-stone-400">
+              Papywrite is a platform for writers to share their thoughts and ideas.
+            </p>
+            <Button asChild className="rounded-none w-28">
+              <Link href="/login">
+                Get Started
+              </Link>
+            </Button>
+          </div>
         </div>
-      </section>
-      <section className="bg-white dark:bg-gray-950 py-12 md:py-20 px-6 md:px-8">
+        
+        <footer className="flex flex-row justify-center text-stone-600 dark:text-stone-400 font-lora border-t border-stone-900 py-5">
+          <span>
+            Made with ❤️ by
+          </span>
+          <span className="font-semibold ml-1 underline cursor-pointer">
+            <Link href={"https://lunaperegrina.dev"} target="_blank">
+              Luna Peregrina
+            </Link>
+          </span>
+        </footer>
+      </div>
+
+      {/* 
+      <section className="bg-white dark:bg-stone-950 py-12 md:py-20 px-6 md:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-stone-800 dark:text-stone-200 mb-8">
             Autores publicados
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -51,28 +93,28 @@ export default async function Home() {
                     }}
                     width={80}
                   />
-                  <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2">
+                  <h3 className="text-lg font-bold text-stone-800 dark:text-stone-200 mb-2">
                     {user.name}
                   </h3>
-                  {/* <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  <p className="text-stone-600 dark:text-stone-400 text-sm">
                     {user.role}
-                  </p> */}
+                  </p>
                 </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
-      <section className="bg-gray-100 dark:bg-gray-900 py-12 md:py-20 px-6 md:px-8">
+      <section className="bg-stone-100 dark:bg-stone-900 py-12 md:py-20 px-6 md:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-stone-800 dark:text-stone-200 mb-8">
             Últimos posts
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.slice(0, 3).map((post) => (
               <div
                 key={post.id}
-                className="bg-white dark:bg-gray-950 rounded-lg shadow-md overflow-hidden"
+                className="bg-white dark:bg-stone-950 rounded-lg shadow-md overflow-hidden"
               >
                 <img
                   alt="Post"
@@ -85,10 +127,10 @@ export default async function Home() {
                   width={400}
                 />
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2">
+                  <h3 className="text-lg font-bold text-stone-800 dark:text-stone-200 mb-2">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  <p className="text-stone-600 dark:text-stone-400 mb-4">
                     {post.description?.trim().substring(0, 50)}...
                   </p>
                   <Link href={`/profile/${users.find((user) => user.id === post.author_id)?.username}/${post.slug}`}>
@@ -103,12 +145,12 @@ export default async function Home() {
       <footer className="bg-gray-800 dark:bg-gray-950 text-gray-400 py-8 px-6 md:px-8">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-4 md:mb-0">
-            {/* <BookIcon className="h-6 w-6 mr-2" /> */}
+            <BookIcon className="h-6 w-6 mr-2" />
             <span className="text-lg font-bold">Papywrite</span>
           </div>
           <nav className="flex space-x-4">Escreva sobre o que quiser</nav>
         </div>
-      </footer>
+      </footer> */}
     </>
   );
 }

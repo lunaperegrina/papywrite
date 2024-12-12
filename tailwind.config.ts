@@ -9,8 +9,11 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+			fontFamily: {
+        lora: ['Lora', 'serif'], // Adiciona a fonte Lora
+      },
   		colors: {
-  			background: 'hsl(var(--background))',
+  			background: '#F7F4ED',
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',

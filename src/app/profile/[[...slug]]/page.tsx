@@ -1,51 +1,22 @@
 "use server";
 import {
-	TypographyH1,
 	TypographyH2,
 	TypographyH3,
-	TypographyInlineCode,
 	TypographySmall,
 } from "@/components/Typography";
 import Link from "next/link";
 import { Post, User } from "interfaces";
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/theme-button";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuGroup, DropdownMenuShortcut, DropdownMenuSubTrigger, DropdownMenuSubContent, DropdownMenuPortal, DropdownMenuSub } from "@/components/ui/dropdown-menu";
-import {
-	Cloud,
-	CreditCard,
-	Github,
-	Keyboard,
-	LifeBuoy,
-	LogOut,
-	Mail,
-	MessageSquare,
-	Plus,
-	PlusCircle,
-	Settings,
-	User as UserIcon,
-	UserPlus,
-	Users,
-	Link as LinkIcon,
-	Share,
-	ChevronLeft
-} from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { Moon, Sun } from "lucide-react"
+import { Link as LinkIcon } from "lucide-react"
 import { redirect } from "next/navigation";
-import BackButton from "@/components/back-button";
 import {
 	Dialog,
 	DialogContent,
-	DialogDescription,
-	DialogFooter,
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
+import Navbar from "@/components/navbar";
 
 export default async function page(
 	{ params }: {
@@ -68,80 +39,8 @@ export default async function page(
 	return (
 		<div className="max-w-xl mx-auto mt-8 max-sm:mx-8">
 
-			<nav className="mb-8 flex flex-row gap-2 justify-between">
-				<BackButton />
-				<div className="flex flex-row gap-2">
-					{/* <ModeToggle /> */}
-					<DropdownMenu>
-						<DropdownMenuTrigger asChild>
-							<Avatar className="cursor-pointer">
-								<AvatarImage src="https://github.com/lunaperegrina.png" />
-								<AvatarFallback>CN</AvatarFallback>
-							</Avatar>
-						</DropdownMenuTrigger>
-						<DropdownMenuContent className="w-56">
-							<DropdownMenuLabel>My Account</DropdownMenuLabel>
-							<DropdownMenuSeparator />
-							<DropdownMenuGroup>
-								<DropdownMenuItem>
-									<UserIcon />
-									<span>Profile *</span>
-									{/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
-								</DropdownMenuItem>
-								<DropdownMenuSub>
-									<DropdownMenuSubTrigger>
-										<Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-										<Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-										<span>Theme</span>
-									</DropdownMenuSubTrigger>
-									<DropdownMenuPortal>
-										<DropdownMenuSubContent>
-											<ModeToggle />
-										</DropdownMenuSubContent>
-									</DropdownMenuPortal>
-								</DropdownMenuSub>
-								<DropdownMenuItem>
-									<Settings />
-									<span>Settings *</span>
-									{/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> */}
-								</DropdownMenuItem>
-							</DropdownMenuGroup>
-							<DropdownMenuSeparator />
-							<DropdownMenuGroup>
-								<DropdownMenuSub>
-									<DropdownMenuSubTrigger>
-										<Share />
-										<span>Share *</span>
-									</DropdownMenuSubTrigger>
-									<DropdownMenuPortal>
-										<DropdownMenuSubContent>
-											<DropdownMenuItem>
-												<LinkIcon />
-												<span>Copy Link</span>
-											</DropdownMenuItem>
-										</DropdownMenuSubContent>
-									</DropdownMenuPortal>
-								</DropdownMenuSub>
-							</DropdownMenuGroup>
-							<DropdownMenuSeparator />
-							<DropdownMenuItem>
-								<Github />
-								<span>GitHub</span>
-							</DropdownMenuItem>
-							<DropdownMenuItem disabled>
-								<Cloud />
-								<span>API (soon)</span>
-							</DropdownMenuItem>
-							<DropdownMenuSeparator />
-							<DropdownMenuItem>
-								<LogOut />
-								<span>Log out *</span>
-								{/* <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut> */}
-							</DropdownMenuItem>
-						</DropdownMenuContent>
-					</DropdownMenu>
-				</div>
-			</nav>
+			<Navbar  />
+
 			{params.slug.length === 1 && (
 				<div className="flex flex-row mb-8 justify-between mx-auto">
 					<div className="flex flex-col gap-0">
@@ -176,7 +75,7 @@ export default async function page(
 												</div>
 											</div>
 										))}
-										</div>
+									</div>
 								</DialogContent>
 							</Dialog>
 
