@@ -35,6 +35,18 @@ import { Badge } from "@/components/ui/badge"
 import { Moon, Sun } from "lucide-react"
 import { redirect } from "next/navigation";
 import BackButton from "@/components/back-button";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+
 export default async function page(
 	{ params }: {
 		params: { slug: string[] }
@@ -138,9 +150,35 @@ export default async function page(
 							<div className="text-gray-500 font-light text-sm">
 								@{user.username}
 							</div>
-							<Button variant={"link"}>
-								links
-							</Button>
+							<Dialog>
+								<DialogTrigger asChild>
+									<Button variant={"link"}>
+										links
+									</Button>
+								</DialogTrigger>
+								<DialogContent className="sm:max-w-[425px]">
+									<DialogHeader>
+										<DialogTitle>Links de redes</DialogTitle>
+									</DialogHeader>
+									<div className="grid gap-4 py-4">
+										{Array.from({ length: 3 }).map(() => (
+											<div
+												key={Math.random()}
+												className="flex flex-row gap-2" >
+												<LinkIcon />
+												<div>
+													<div className="font-bold">
+														Link test
+													</div>
+													<div className="text-sm text-gray-500">
+														https://lunaperegrina.dev
+													</div>
+												</div>
+											</div>
+										))}
+								</DialogContent>
+							</Dialog>
+
 						</div>
 						<div className="text-gray-800 font-light text-sm">{user.bio}</div>
 					</div>
