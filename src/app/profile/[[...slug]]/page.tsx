@@ -176,6 +176,7 @@ export default async function page(
 												</div>
 											</div>
 										))}
+										</div>
 								</DialogContent>
 							</Dialog>
 
