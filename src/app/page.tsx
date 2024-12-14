@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Post, User } from "interfaces";
+import LoginButton from "@/components/login-button";
 
 export default async function Home() {
 
@@ -19,7 +20,7 @@ export default async function Home() {
     <>
       <div className="h-screen max-w-7xl mx-auto flex flex-col">
         <nav className="flex flex-row border-b border-stone-900 py-5 px-8 justify-between">
-          <h1 className="font-lora text-2xl font-semibold">
+          <h1 className="font-lora text-2xl font-semibold tracking-tight cursor-pointer">
             Papywrite
           </h1>
           <ul className="flex flex-row gap-4 items-center">
@@ -27,36 +28,31 @@ export default async function Home() {
               Sign In
             </li>
             <li>
-              <Button asChild className="rounded-none w-28">
-                <Link href="/login">
-                  Get Started
-                </Link>
-              </Button>
+              <LoginButton />
             </li>
           </ul>
         </nav>
 
         <div className="flex flex-col flex-1 justify-center mx-16">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 items-start">
             <div>
               <h1 className="font-lora text-7xl font-bold text-stone-800 dark:text-stone-200">
                 A platform
               </h1>
-              <h1 className="font-lora text-7xl font-bold text-stone-800 dark:text-stone-200">
-                for writers
+              <h1 className="font-lora text-8xl font-bold text-stone-800 dark:text-stone-200">
+                for <span className="underline">
+                  writers
+                </span>
+                <span className="animate-pulse duration-40">|</span>
               </h1>
             </div>
             <p className="text-stone-600 dark:text-stone-400">
               Papywrite is a platform for writers to share their thoughts and ideas.
             </p>
-            <Button asChild className="rounded-none w-28">
-              <Link href="/login">
-                Get Started
-              </Link>
-            </Button>
+            <LoginButton />
           </div>
         </div>
-        
+
         <footer className="flex flex-row justify-center text-stone-600 dark:text-stone-400 font-lora border-t border-stone-900 py-5">
           <span>
             Made with ❤️ by
